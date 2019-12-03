@@ -34,9 +34,9 @@ create table theater_info(
 
 create table theater_fac(
     theater_id int(10),
-    seat varchar(20),
-    screen varchar(20),
-    fire_ext varchar(20),
+    seat varchar(100),
+    screen varchar(100),
+    fire_ext varchar(100),
 
     primary key(theater_id),
     foreign key(theater_id) references theater_info(theater_id) on delete CASCADE on update CASCADE

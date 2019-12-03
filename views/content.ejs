@@ -200,10 +200,10 @@
                 console.log(data_type);
 
                 if(data_type === 0){
-                    var data_reg = '<%-data_reg %>'.split(',');
-                    var data_city = '<%-data_city %>'.split(',');
-                    var data_p = [<%-data_price%>];
-                    var data_d = '<%-data_date%>'.split(',').map((date) => {
+                    var data_reg = '<%-data_rd %>'.split(',');
+                    var data_city = '<%-data_fr %>'.split(',');
+                    var data_p = '<%-data_nd%>'.split(',');
+                    var data_d = '<%-data_st%>'.split(',').map((date) => {
                         var D = new Date(date);
                         var Y = D.getFullYear();
                         var M = D.getMonth();
@@ -213,13 +213,27 @@
                     });
 
                     console.log(data_city);
-                    $("#list1").append('<li>    지점    //    날짜    //    일 매출    </li>');
+                    $("#list1").append('<li>/----지점----//----날짜----//----일 매출----/</li>');
                     for(var i = 0; i < data_p.length ; i++ ){
                         $("#list1").append(`<li> ${data_reg[i]}, ${data_city[i]} || ${data_d[i]}:  ${data_p[i]}원 </li>`);
                     }
                 }
-                else{
+                else if(data_type === 1){
 
+                    var data_reg = '<%-data_st%>'.split(',');
+                    var data_city = '<%-data_nd%>'.split(',');
+                    var data_thn = '<%-data_rd%>'.split(',');
+                    var data_seat = '<%-data_fr%>'.split(',');
+                    var data_screen = '<%-data_fiv%>'.split(',');
+                    var data_fext = '<%-data_six%>'.split(',');
+
+                    $("#list1").append('<li> /----지점----//----상영관----//----좌석이상----//----스크린이상----//----소화기 재고----/    </li>');
+
+                    for(var i = 0; i < data_reg.length; i++){
+
+                        $('#list1').append(`<li> ${data_reg[i]}, ${data_city[i]} || ${data_thn[i]} : ${data_seat[i]} // ${data_screen[i]} // ${data_fext[i]}</li>`);
+
+                    }
                 }
             });
         </script>

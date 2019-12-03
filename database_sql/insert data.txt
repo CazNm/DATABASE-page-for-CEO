@@ -75,27 +75,27 @@ select * from theater_info;
 
 insert into theater_fac
 values
-(1, '이상 없음', '이상 없음', '5개/ 누락없음');
+(1, 'no prob', 'no_prob', '5 / missing : 0');
 
 insert into theater_fac
 values
-(2, '이상 없음', '좌 상단 찢어짐', '5개/ 누락없음');
+(2, 'prob: d/14, f/10', 'no_prob', '5 / missing : 0');
 
 insert into theater_fac
 values
-(3, '이상 없음', '이상 없음', '4개/ 누락없음');
+(3, 'no prob', 'no_prob', '5 / missing : 0');
 
 insert into theater_fac
 values
-(4, 'c열 4번자리 고장', '이상 없음', '4개/ 누락없음');
+(4, 'prob : c/4 ', 'no_prob', '4 / missing : 0');
 
 insert into theater_fac
 values
-(5, '이상 없음', '이상 없음', '6개/ 누락없음');
+(5, 'no prob', 'prob: left side crash', '3 / missing : 1');
 
 insert into theater_fac
 values
-(6, '이상 없음', '이상 없음', '5개/ 누락없음');
+(6, 'no prob', 'no_prob', '6 / missing : 0');
 
 
 select * from theater_fac;

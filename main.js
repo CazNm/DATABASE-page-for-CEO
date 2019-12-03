@@ -62,15 +62,15 @@ app.post("/database", async function(req, res) {
     var value = req.body.rn;
     var connection = await pool.getConnection(async conn => conn);
 
-    var array_date = new Array();
-    var array_price = new Array();
-    var array_reg = new Array();
-    var array_city = new Array();
-
     if (value === "0") {
         //value of settlement
         var qr = "select * from settlement";
         var qr_po = "select * from point where branch_id = ?";
+
+        var array_date = new Array();
+        var array_price = new Array();
+        var array_reg = new Array();
+        var array_city = new Array();
 
         var [rows] = await connection.query(qr);
 
@@ -93,22 +93,65 @@ app.post("/database", async function(req, res) {
         res.render("content.ejs", {
             username: "ADMIN",
             data_name: "결산",
-            data_date: array_date,
-            data_price: array_price,
-            data_reg: array_reg,
-            data_city: array_city,
+            data_st: array_date,
+            data_nd: array_price,
+            data_rd: array_reg,
+            data_fr: array_city,
+            data_fiv: 0,
+            data_six: 0,
             data_type: 0
         });
     } else if (value === "1") {
         //value of fac
         var qr = "select * from theater_fac";
+        var info_qr = "select * from theater_info where theater_id = ?";
+        var info_br = "select * from point where branch_id = ?";
+
+        var data_th_reg = new Array();
+        var data_th_city = new Array();
+        var data_th = new Array();
+        var data_i_seat = new Array();
+        var data_i_screen = new Array();
+        var data_i_fext = new Array();
+        var bc_id = new Array();
+
         var [result] = await connection.query(qr);
-        console.log("fac: " + result);
+
+        for (var i = 0; i < result.length; i++) {
+            var [res_info] = await connection.query(
+                info_qr,
+                result[i].theater_id
+            );
+
+            bc_id[i] = res_info[0].branch_id;
+
+            data_i_seat[i] = result[i].seat;
+            data_i_screen[i] = result[i].screen;
+            data_i_fext[i] = result[i].fire_ext;
+            data_th[i] = res_info[0].theater_num;
+        }
+
+        for (var i = 0; i < result.length; i++) {
+            var [res_info] = await connection.query(info_br, [bc_id[i]]);
+
+            data_th_reg[i] = res_info[0].branch_region;
+            data_th_city[i] = res_info[0].branch_city;
+        }
+
+        console.log(result); //내부시설 상영관 id/시설물
+
         connection.release();
+
         res.render("content.ejs", {
             username: "ADMIN",
-            data_name: "내부시설:",
-            data_type: "1"
+            data_name: "내부시설",
+            data_st: data_th_reg,
+            data_nd: data_th_city,
+            data_rd: data_th,
+            data_fr: data_i_seat,
+            data_fiv: data_i_screen,
+            data_six: data_i_fext,
+            data_type: 1
         });
     }
 });
