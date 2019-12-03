@@ -1,0 +1,44 @@
+create table user( 
+    user_no int(10) auto_increment, 
+    userID varchar(20), 
+    userPW varchar(20), 
+    primary key(user_no)  
+    );
+
+create table point(
+    branch_id int(10),
+    branch_region varchar(20),
+    branch_city varchar(20),
+
+    primary key(branch_id)
+);
+
+
+create table settlement(
+    branch_id int(10),
+    date date,
+    day_price int(30),
+
+    foreign key(branch_id) references point(branch_id) on update CASCADE
+
+);
+
+create table theater_info(
+    theater_id int(10),
+    theater_num varchar(20),
+    branch_id int(10),
+
+    primary key(theater_id),
+    foreign key (branch_id) references point(branch_id) on delete CASCADE on update CASCADE
+);
+
+create table theater_fac(
+    theater_id int(10),
+    seat varchar(20),
+    screen varchar(20),
+    fire_ext varchar(20),
+
+    primary key(theater_id),
+    foreign key(theater_id) references theater_info(theater_id) on delete CASCADE on update CASCADE
+
+);

@@ -1,0 +1,101 @@
+insert into user 
+(userID, userPW) 
+values 
+('admin', 'admin');
+
+insert into user
+(userID, userPW)
+values
+('admin1', 'admin1');
+
+insert into user
+(userID, userPW)
+values
+('admin2', 'admin2');
+
+select * from user;
+
+insert into point
+values
+(1, '서울', '가산 디지털 단지');
+
+insert into point
+values
+(2, '서울', '김포 공항');
+
+insert into point
+values
+(3, '경기도', '안산 고잔');
+
+select * from point;
+
+insert into settlement
+values
+(1, '2019-10-29', 1000);
+
+insert into settlement
+values
+(1, '2019-10-10', 3000);
+
+insert into settlement
+values
+(2, '2019-10-29', 2000);
+
+insert into settlement
+values
+(3, '2019-10-20', 500);
+
+select * from settlement;
+
+insert into theater_info
+values
+(1, '제 1관', 1);
+
+insert into theater_info
+values
+(2, '제 2관', 1);
+
+insert into theater_info
+values
+(3, '제 1관', 2);
+
+insert into theater_info
+values
+(4, '제 2관', 2);
+
+insert into theater_info
+values
+(5, '제 1관', 3);
+
+insert into theater_info
+values
+(6, '제 2관', 3);
+
+select * from theater_info;
+
+insert into theater_fac
+values
+(1, '이상 없음', '이상 없음', '5개/ 누락없음');
+
+insert into theater_fac
+values
+(2, '이상 없음', '좌 상단 찢어짐', '5개/ 누락없음');
+
+insert into theater_fac
+values
+(3, '이상 없음', '이상 없음', '4개/ 누락없음');
+
+insert into theater_fac
+values
+(4, 'c열 4번자리 고장', '이상 없음', '4개/ 누락없음');
+
+insert into theater_fac
+values
+(5, '이상 없음', '이상 없음', '6개/ 누락없음');
+
+insert into theater_fac
+values
+(6, '이상 없음', '이상 없음', '5개/ 누락없음');
+
+
+select * from theater_fac;
