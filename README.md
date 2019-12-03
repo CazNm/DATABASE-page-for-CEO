@@ -1,5 +1,8 @@
 # DATABASE-page-for-CEO
 
+!아마도 nodemodule이 있어서 오류는 안나겠지만 혹시 날 경우 nodemodule 파일 완전 삭제후 아래 과정대로 진행  
+!단, mysql의 경우 무조건적으로 설치해야함
+
 페이지 사용을 위해서 mysql설치 후 main.js에서 본인 데이터 베이스 계정에 맞춰서 정보 입력  
 데이터 베이스 접근 불가 시 보안 설정 때문이므로 mysql 데이터 베이스에서  
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';로 권한 변경  
