@@ -1,6 +1,6 @@
 # DATABASE-page-for-CEO
 
-페이지 사용을 위해서 mysql설치 후 main.js에서 본인 데이터 베이스 계정에 맞춰서 정보 입력\n
+페이지 사용을 위해서 mysql설치 후 main.js에서 본인 데이터 베이스 계정에 맞춰서 정보 입력/n
 데이터 베이스 접근 불가 시 보안 설정 때문이므로 mysql 데이터 베이스에서
 #ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';로 권한 변경 
 #이제 npm install 로 express 설치 후, node main.js 실행시에 모듈이 없을 경우 오류 발생함.
