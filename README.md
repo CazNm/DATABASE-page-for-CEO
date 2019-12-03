@@ -1,10 +1,13 @@
 # DATABASE-page-for-CEO
 
+!아마도 nodemodule이 있어서 오류는 안나겠지만 혹시 날 경우 nodemodule 파일 완전 삭제후 아래 과정대로 진행  
+!단, mysql의 경우 무조건적으로 설치해야함
+
 페이지 사용을 위해서 mysql설치 후 main.js에서 본인 데이터 베이스 계정에 맞춰서 정보 입력  
 데이터 베이스 접근 불가 시 보안 설정 때문이므로 mysql 데이터 베이스에서  
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';로 권한 변경  
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '본인이 사용하는 비밀번호';로 권한 변경  
 이제 npm install 로 express 설치 후, node main.js 실행시에 모듈이 없을 경우 오류 발생함.  
-오류가 안뜰 때 까지 npm instal '없는 모듈'설치 끝나면 실행가능  
+오류가 안뜰 때 까지 npm install '없는 모듈' 설치 끝나면 실행가능  
 
 !페이지 접근전에 mysql에 database_sql파일 안에 있는 sql 구문 전부 적용시킨 뒤에 node main.js를 실행하면 페이지 로그인기능 부터  데이터 확인 기능 사용가능  
 
