@@ -18,8 +18,8 @@ app.use("/", login);
 const pool = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: "Cho641164!",
-    database: "solo"
+    password: "1234",
+    database: "movie"
 });
 
 //login function from login html
@@ -162,6 +162,6 @@ app.post("/login", function(req, res) {
     var userPW = req.body.pw;
 });
 
-server.listen(9090, function() {
-    console.log("server starting with 9090");
+server.listen(3000, function() {
+    console.log("server starting with 3000");
 });
